@@ -1,4 +1,5 @@
-import { partnerLogos, productList, partnerLogoBasePath } from "./data.js";
+// Imports removed for local file compatibility
+// Data variables (partnerLogos, productList) are now loaded globally via index.html
 
 /* ================ 
     Nav
@@ -191,30 +192,43 @@ $(function () {
   AOS Animation
   =================== */
 $(function () {
-  AOS.init();
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: "aos-init", // class applied after initialization
+      animatedClassName: "aos-animate", // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
 
-  // You can also pass an optional settings object
-  // below listed default settings
-  AOS.init({
-    // Global settings:
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: "aos-init", // class applied after initialization
-    animatedClassName: "aos-animate", // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 100, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 700, // values from 0 to 3000, with step 50ms
+      easing: "ease-in-out", // default easing for AOS animations
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: true, // whether elements should animate out while scrolling past them
+      anchorPlacement: "center-bottom", // defines which position of the element regarding to window should trigger the animation
+    });
 
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 100, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 700, // values from 0 to 3000, with step 50ms
-    easing: "ease-in-out", // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
-    mirror: true, // whether elements should animate out while scrolling past them
-    anchorPlacement: "center-bottom", // defines which position of the element regarding to window should trigger the animation
-  });
+    // FORCE ANIMATIONS TO APPEAR AFTER 500ms TO PREVENT STUCK ELEMENTS
+    setTimeout(() => {
+      document.querySelectorAll("[data-aos]").forEach((el) => {
+        el.classList.add("aos-animate");
+        el.style.opacity = "1"; /* Brute force visibility */
+      });
+    }, 500);
+  } else {
+    // Failsafe: if AOS fails to load, force visibility
+    console.warn(
+      "AOS library not found. Disabling animations to ensure visibility."
+    );
+    $("[data-aos]").css("opacity", "1");
+    $("[data-aos]").addClass("aos-animate");
+  }
 });
 
 /* ================ 
@@ -294,15 +308,16 @@ $(function () {
     }, 2000);
   }
 
-  acceptBtn.click(function () {
+  // Event delegation to ensure clicks are caught
+  $(document).on("click", "#acceptCookie", function () {
     localStorage.setItem("cookieConsent", "accepted");
-    cookieConsent.addClass("translate-y-full");
+    $("#cookieConsent").addClass("translate-y-full");
     showToast("Bạn đã chấp nhận cookie.", "success");
   });
 
-  declineBtn.click(function () {
+  $(document).on("click", "#declineCookie", function () {
     localStorage.setItem("cookieConsent", "declined");
-    cookieConsent.addClass("translate-y-full");
+    $("#cookieConsent").addClass("translate-y-full");
     showToast("Bạn đã từ chối cookie.", "info");
   });
 });
@@ -341,28 +356,21 @@ function showToast(message, type = "info") {
 }
 
 /* ================ 
-   Dark Mode Toggle
+   Preloader & Scroll Progress
   =================== */
 $(function () {
-  const toggleBtn = $("#darkModeToggle");
-  const html = $("html");
-  const icon = toggleBtn.find("i");
+  $(window).on("load", function () {
+    const preloader = $("#preloader");
+    preloader.addClass("opacity-0");
+    setTimeout(() => {
+      preloader.remove();
+    }, 500);
+  });
 
-  // Check valid
-  if (localStorage.getItem("theme") === "dark") {
-    html.addClass("dark");
-    icon.removeClass("fa-moon").addClass("fa-sun");
-  }
-
-  toggleBtn.click(function () {
-    if (html.hasClass("dark")) {
-      html.removeClass("dark");
-      localStorage.setItem("theme", "light");
-      icon.removeClass("fa-sun").addClass("fa-moon");
-    } else {
-      html.addClass("dark");
-      localStorage.setItem("theme", "dark");
-      icon.removeClass("fa-moon").addClass("fa-sun");
-    }
+  $(window).scroll(function () {
+    const scrollTop = $(window).scrollTop();
+    const docHeight = $(document).height() - $(window).height();
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    $("#scrollProgress").width(scrollPercent + "%");
   });
 });

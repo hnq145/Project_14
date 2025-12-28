@@ -32,8 +32,45 @@
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="./css/animation.css" rel="stylesheet" />
-    <link href="./dist/output.css" rel="stylesheet" />
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              lobster: ['Lobster', 'cursive'],
+              inter: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              p: {
+                50: "hsl(150, 66%, 96%)", // #EEFBF5
+                100: "hsl(150, 64%, 91%)", // #D5F6E5
+                200: "hsl(150, 60%, 80%)", // #AEECCF
+                300: "hsl(150, 55%, 67%)", // #79DCB4
+                400: "hsl(150, 51%, 52%)", // #43C494
+                500: "hsl(150, 69%, 42%)", // #22B684
+                600: "hsl(150, 74%, 30%)", // #128963
+                700: "hsl(150, 75%, 24%)", // #0F6D51
+                900: "hsl(160, 65%, 17%)", // #0D4738
+                950: "hsl(160, 73%, 9%)", // #062820
+              },
+              n: {
+                50: "hsl(210, 14%, 98%)", // #F7F8F9
+                100: "hsl(210, 20%, 93%)", // #E7EAEE
+                200: "hsl(210, 22%, 85%)", // #D0D5DD
+                500: "hsl(217, 20%, 58%)", // #64748B
+                600: "hsl(217, 18%, 54%)", // #4B5768
+                700: "hsl(217, 17%, 40%)", // #323A46
+                800: "hsl(220, 14%, 12%)", // #191D23
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -64,48 +101,53 @@
       src="https://unpkg.com/counterup2@2.0.2/dist/index.js"
     ></script>
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer type="module" src="./js/main.js"></script>
+    <script src="./js/data.js"></script>
+    <script defer src="./js/main.js?v=5"></script>
   </head>
 
   <body class="transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+    <!-- PRELOADER REMOVED -->
+    <!-- <div id="preloader"></div> -->
+
+    <!-- Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 z-[100] w-0 h-1 bg-gradient-to-r from-p-400 to-p-600" id="scrollProgress"></div>
+
     <!-- Promo Bar -->
-    <div id="promoBar" class="hidden relative px-4 py-2 text-sm text-center text-white bg-p-600 md:block">
-      <p>🎉 Chào mừng bạn đến với Tea Station! Nhập mã <b>TEA50</b> để được giảm 50% cho đơn hàng đầu tiên. <a href="#promo" class="underline hover:text-p-200">Mua ngay</a></p>
-      <button onclick="document.getElementById('promoBar').style.display='none'" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-p-200"><i class="fas fa-times"></i></button>
+    <!-- Promo Bar -->
+    <div id="promoBar" class="relative z-[100] block py-2 pl-4 pr-10 text-sm text-center text-p-800 bg-p-50 border-b border-p-200">
+      <p>🎉 Chào mừng bạn đến với Tea Station! Nhập mã <b class="text-p-600">TEA50</b> để được giảm 50% cho đơn hàng đầu tiên. <a href="#promo" class="underline hover:text-p-600">Mua ngay</a></p>
+      <button onclick="document.getElementById('promoBar').style.display='none'" class="absolute right-4 top-1/2 -translate-y-1/2 outline-none hover:text-p-600"><i class="text-lg fas fa-times"></i></button>
     </div>
 
     <!----------------- 
         Navigation
     ------------------>
     <header class="relative z-50">
-      <div class="flex items-center justify-center navbar">
-        <div
-          class="max-w-[1536px] w-full px-4 py-4 md:py-10 md:px-[72px] flex items-center justify-between"
-        >
+      <div class="flex justify-center items-center navbar">
+        <div class="max-w-[1536px] w-full px-4 py-4 md:py-10 md:px-[72px] flex items-center justify-between">
           <!-- Logo -->
-          <a href="./" class="flex items-center justify-center flex-none">
+          <a href="./" class="flex flex-none justify-center items-center">
             <img src="./assets/logo.png" alt="logo" class="w-16 h-16" />
             <p class="text-lg capitalize font-lobster text-p-900">
               Tea Station
             </p>
           </a>
 
-          <!-- Nav Links -->
-          <nav
-            class="items-center justify-end hidden w-full gap-4 lg:flex lg:gap-8"
-          >
-            <a href="./products.html" class="navLink">Sản Phẩm</a>
-            <a href="./#story" class="navLink">Giới Thiệu</a>
-            <a href="./#contact" class="navLink">Liên Hệ</a>
-          </nav>
+          <!-- Right Side: Nav + Dark Mode + Hamburger -->
+          <div class="flex gap-4 items-center lg:gap-8">
+            <!-- Nav Links -->
+            <nav class="hidden gap-4 justify-end items-center w-full lg:flex lg:gap-8">
+              <a href="./products.html" class="navLink">Sản Phẩm</a>
+              <a href="./#story" class="navLink">Giới Thiệu</a>
+              <a href="./#contact" class="navLink">Liên Hệ</a>
+            </nav>
 
-          <!-- Hamburger Icon -->
-          <div class="block cursor-pointer lg:hidden" id="toggle_btn">
-            <img
-              src="./assets/Menu Icon.svg"
-              alt="hamburger icon"
-              class="size-5"
-            />
+
+
+            <!-- Hamburger Icon -->
+            <div class="block cursor-pointer lg:hidden" id="toggle_btn">
+              <img src="./assets/Menu Icon.svg" alt="hamburger icon" class="size-5" />
+            </div>
           </div>
 
           <!-- Mobile Menu -->
@@ -126,12 +168,12 @@
       class="h-screen max-h-[1100px] bg-gradient-to-t from-p-100 to-white overflow-y-clip"
     >
       <div
-        class="container relative flex items-center justify-center w-full h-full xl:justify-start"
+        class="container flex relative justify-center items-center w-full h-full xl:justify-start"
       >
         <!-- hình -->
         <div
           data-aos="fade-left"
-          class="absolute bottom-0 right-0 z-0 overflow-hidden md:-bottom-40 xl:top-1/2 xl:-translate-y-1/2"
+          class="overflow-hidden absolute right-0 bottom-0 z-0 md:-bottom-40 xl:top-1/2 xl:-translate-y-1/2"
         >
           <img
             src="./assets/hero_img.png"
@@ -143,12 +185,12 @@
         <!-- nội dung chính -->
 
         <div
-          class="z-10 flex flex-col items-center justify-center gap-4 md:gap-9 xl:items-start"
+          class="flex z-10 flex-col gap-4 justify-center items-center md:gap-9 xl:items-start"
         >
           <div>
             <h2
               data-aos="zoom-in"
-              class="mb-2 text-xs font-semibold leading-none tracking-wider text-center uppercase font-inter md:text-sm xl:text-start"
+              class="mb-2 text-xs font-semibold tracking-wider leading-none text-center uppercase font-inter md:text-sm xl:text-start"
             >
               hơn
               <span class="text-xs text-gradient md:text-sm">một trăm</span>
@@ -157,7 +199,7 @@
             <h1
               data-aos="zoom-in"
               data-aos-delay="100"
-              class="text-5xl leading-none tracking-wide text-center capitalize font-lobster text-p-950 md:text-6xl lg:text-7xl"
+              class="text-5xl tracking-wide leading-none text-center capitalize font-lobster text-p-950 md:text-6xl lg:text-7xl"
             >
               Trà Đặc Biệt Chế Tác
             </h1>
@@ -166,7 +208,7 @@
           <p
             data-aos="zoom-in"
             data-aos-delay="200"
-            class="max-w-xl px-4 text-center text-n-700 md:px-0 xl:text-start"
+            class="px-4 max-w-xl text-center text-n-700 md:px-0 xl:text-start"
           >
             Sứ mệnh của chúng tôi là mang đến cho bạn sự yên bình và kết nối
             thông qua các hương vị trà được chọn lọc cẩn thận và được tạo ra để
@@ -201,7 +243,7 @@
         >
           <div
             id="partner-logo-list"
-            class="flex flex-none logos-wrapper gap-14 pl-14"
+            class="flex flex-none gap-14 pl-14 logos-wrapper"
           ></div>
         </div>
       </div>
@@ -425,7 +467,7 @@
       <div class="container relative m-20 text-center">
         <!-- hàng đầu -->
         <div
-          class="flex flex-col items-center justify-center w-full gap-0 lg:gap-10 lg:flex-row"
+          class="flex flex-col gap-0 justify-center items-center w-full lg:gap-10 lg:flex-row"
         >
           <div
             data-aos="zoom-in"
@@ -472,7 +514,7 @@
         <!-- hàng thứ 2 -->
 
         <div
-          class="flex flex-col items-center justify-center w-full lg:-mt-20 lg:gap-10 lg:flex-row"
+          class="flex flex-col justify-center items-center w-full lg:-mt-20 lg:gap-10 lg:flex-row"
         >
           <div
             data-aos="zoom-in"
@@ -522,7 +564,7 @@
           <p
             data-aos="fade-right"
             data-aos-delay="100"
-            class="max-w-lg pr-16 mt-2 text-xs text-start md:text-center lg:text-start text-n-500"
+            class="pr-16 mt-2 max-w-lg text-xs text-start md:text-center lg:text-start text-n-500"
           >
             Khám phá những sản phẩm bán chạy nhất của chúng tôi, nơi chất lượng
             kết hợp hương vị trong mỗi tách trà. Hãy tham gia cùng hàng ngàn
@@ -532,7 +574,7 @@
         </div>
 
         <!-- carousel sản phẩm  -->
-        <div class="lg:px-4 md:x-2 mt-9 slider">
+        <div class="px-4 mt-9 lg:px-4 md:px-2 slider">
           <!-- sản phẩm 1 -->
           <div class="!flex flex-col lg:flex-row items-center justify-between">
             <!-- phần bên trái -->
@@ -997,7 +1039,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="100"
-            class="relative p-8 transition-transform duration-300 border bg-white/50 border-p-200 rounded-2xl hover:-translate-y-2 hover:shadow-xl"
+            class="relative p-8 rounded-2xl border transition-transform duration-300 bg-white/50 border-p-200 hover:-translate-y-2 hover:shadow-xl"
           >
             <h3 class="mb-2 text-xl font-bold text-p-900">Cơ Bản</h3>
             <div class="my-6">
@@ -1005,13 +1047,13 @@
               ><span class="text-n-500">/tháng</span>
             </div>
             <ul class="flex flex-col gap-3 mb-8 text-n-600">
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> 2 Gói trà dùng thử
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> Giảm 5% khi mua hàng
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-n-400">✕</span> Giao hàng miễn phí
               </li>
             </ul>
@@ -1022,10 +1064,10 @@
           <div
             data-aos="fade-up"
             data-aos-delay="200"
-            class="relative p-8 transition-transform duration-300 transform scale-105 bg-white border-2 border-p-500 shadow-2xl rounded-2xl"
+            class="relative p-8 bg-white rounded-2xl border-2 shadow-2xl transition-transform duration-300 transform scale-105 border-p-500"
           >
             <div
-              class="absolute top-0 px-4 py-1 text-xs font-bold text-white -translate-x-1/2 -translate-y-1/2 rounded-full left-1/2 bg-p-600"
+              class="absolute top-0 left-1/2 px-4 py-1 text-xs font-bold text-white rounded-full -translate-x-1/2 -translate-y-1/2 bg-p-600"
             >
               PHỔ BIẾN NHẤT
             </div>
@@ -1035,13 +1077,13 @@
               ><span class="text-n-500">/tháng</span>
             </div>
             <ul class="flex flex-col gap-3 mb-8 text-n-600">
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> 5 Gói trà cao cấp
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> Giảm 10% khi mua hàng
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> Giao hàng miễn phí
               </li>
             </ul>
@@ -1054,7 +1096,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="300"
-            class="relative p-8 transition-transform duration-300 border bg-white/50 border-p-200 rounded-2xl hover:-translate-y-2 hover:shadow-xl"
+            class="relative p-8 rounded-2xl border transition-transform duration-300 bg-white/50 border-p-200 hover:-translate-y-2 hover:shadow-xl"
           >
             <h3 class="mb-2 text-xl font-bold text-p-900">Cao Cấp</h3>
             <div class="my-6">
@@ -1062,13 +1104,13 @@
               ><span class="text-n-500">/tháng</span>
             </div>
             <ul class="flex flex-col gap-3 mb-8 text-n-600">
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> 10 Gói trà thượng hạng
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> Giảm 20% khi mua hàng
               </li>
-              <li class="flex items-center gap-2">
+              <li class="flex gap-2 items-center">
                 <span class="text-green-500">✓</span> Quà tặng đặc biệt
               </li>
             </ul>
@@ -1090,7 +1132,7 @@
 
       <!-- nội dung -->
       <div
-        class="container relative z-10 flex flex-col items-center justify-center px-4 py-20 lg:py-28 gap-14 lg:gap-32 md:flex-row"
+        class="container flex relative z-10 flex-col gap-14 justify-center items-center px-4 py-20 lg:py-28 lg:gap-32 md:flex-row"
       >
         <div class="stats-item">
           <h1 class="counter">100+</h1>
@@ -1178,18 +1220,21 @@
     ------------------>
     <section id="story">
       <!-- lớp chứa hình nền -->
-      <div
-        class="flex justify-end h-screen max-h-[1100px] p-0 w-full max-w-none bg-[url(/assets/aboutUsImg.jpg)] bg-no-repeat bg-center bg-cover"
-      >
-        <!-- lớp overlay chiếm 2/3 màn hình -->
-        <div class="w-full h-full lg:w-2/3 bg-p-950/60 p-9">
-          <div
-            class="container relative flex items-center justify-center h-full md:justify-end 2xl:justify-center"
-          >
+      <div class="container py-20">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:items-center">
+          <!-- Hình ảnh với 2 viền -->
+          <div data-aos="fade-right" class="relative order-2 md:order-1">
+            <div class="absolute inset-0 rounded-lg border-4 translate-x-4 translate-y-4 border-p-200 -z-10"></div>
+            <img src="./assets/aboutUsImg.jpg" alt="Our Story" class="object-cover w-full h-full rounded-lg shadow-xl" />
+          </div>
+
+          <!-- Nội dung -->
+          <div class="order-1 h-full md:order-2">
+            <div class="flex relative flex-col justify-center h-full">
             <!-- watermark -->
             <div
               data-aos="fade-right"
-              class="absolute hidden -translate-y-1/2 translate-x-36 top-1/2 right-1/2 md:block 2xl:translate-x-0"
+              class="hidden absolute top-1/2 right-1/2 translate-x-36 -translate-y-1/2 md:block 2xl:translate-x-0"
             >
               <h1
                 class="uppercase -rotate-90 text-[150px] text-center leading-[148px] font-bold text-p-50 opacity-20"
@@ -1203,7 +1248,7 @@
             <div class="relative" data-aos="fade-left">
               <div class="mb-9">
                 <h2 class="!text-p-200 sub_heading">Khám phá</h2>
-                <h1 class="text-white main_heading">Câu chuyện & sứ mệnh</h1>
+                <h1 class="text-p-900 main_heading">Câu chuyện & sứ mệnh</h1>
               </div>
 
               <p class="text-n-200 max-w-80">
@@ -1237,132 +1282,61 @@
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <!-- Instructor 1 -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="100"
-            class="text-center group"
-          >
-            <div class="relative mb-4 overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=388&auto=format&fit=crop"
-                alt="Instructor 1"
-                class="object-cover w-full h-64 transition-transform duration-500 transform group-hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/40 group-hover:opacity-100"
-              >
-                <div class="flex gap-4">
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
+          <div data-aos="fade-up" data-aos-delay="100" class="text-center group">
+            <div class="overflow-hidden relative mx-auto mb-4 w-24 h-24 rounded-full shadow-lg" style="width: 96px; height: 96px;">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=388&auto=format&fit=crop" alt="Instructor 1" class="object-cover w-full h-full text-xs" />
             </div>
             <h3 class="text-xl font-bold text-p-900">Trần Lan</h3>
             <p class="text-sm text-n-500">Chuyên gia Trà Đạo</p>
+            <div class="flex gap-4 justify-center mt-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
 
           <!-- Instructor 2 -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            class="text-center group"
-          >
-            <div class="relative mb-4 overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop"
-                alt="Instructor 2"
-                class="object-cover w-full h-64 transition-transform duration-500 transform group-hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/40 group-hover:opacity-100"
-              >
-                <div class="flex gap-4">
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
+          <div data-aos="fade-up" data-aos-delay="200" class="text-center group">
+            <div class="overflow-hidden relative mx-auto mb-4 w-24 h-24 rounded-full shadow-lg" style="width: 96px; height: 96px;">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop" alt="Instructor 2" class="object-cover w-full h-full text-xs" />
             </div>
             <h3 class="text-xl font-bold text-p-900">Nguyễn Minh</h3>
             <p class="text-sm text-n-500">Nghệ nhân Pha chế</p>
+            <div class="flex gap-4 justify-center mt-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
 
           <!-- Instructor 3 -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            class="text-center group"
-          >
-            <div class="relative mb-4 overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=464&auto=format&fit=crop"
-                alt="Instructor 3"
-                class="object-cover w-full h-64 transition-transform duration-500 transform group-hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/40 group-hover:opacity-100"
-              >
-                <div class="flex gap-4">
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
+          <div data-aos="fade-up" data-aos-delay="300" class="text-center group">
+            <div class="overflow-hidden relative mx-auto mb-4 w-24 h-24 rounded-full shadow-lg" style="width: 96px; height: 96px;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=464&auto=format&fit=crop" alt="Instructor 3" class="object-cover w-full h-full text-xs" />
             </div>
             <h3 class="text-xl font-bold text-p-900">Lê Thu</h3>
             <p class="text-sm text-n-500">Chuyên gia Dinh dưỡng</p>
+            <div class="flex gap-4 justify-center mt-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
 
           <!-- Instructor 4 -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            class="text-center group"
-          >
-            <div class="relative mb-4 overflow-hidden rounded-lg">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop"
-                alt="Instructor 4"
-                class="object-cover w-full h-64 transition-transform duration-500 transform group-hover:scale-110"
-              />
-              <div
-                class="absolute inset-0 flex items-center justify-center transition-opacity duration-300 opacity-0 bg-black/40 group-hover:opacity-100"
-              >
-                <div class="flex gap-4">
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a href="#" class="text-white hover:text-p-400"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                </div>
-              </div>
+          <div data-aos="fade-up" data-aos-delay="400" class="text-center group">
+            <div class="overflow-hidden relative mx-auto mb-4 w-24 h-24 rounded-full shadow-lg" style="width: 96px; height: 96px;">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Instructor 4" class="object-cover w-full h-full text-xs" />
             </div>
             <h3 class="text-xl font-bold text-p-900">Phạm Hùng</h3>
             <p class="text-sm text-n-500">Quản lý Chất lượng</p>
+            <div class="flex gap-4 justify-center mt-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="text-p-400 hover:text-p-600"><i class="fab fa-instagram"></i></a>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
@@ -1371,7 +1345,7 @@
        Promo/Deal
     ------------------>
     <section id="promo" class="py-20 text-white bg-p-900">
-      <div class="container flex flex-col items-center gap-10 md:flex-row">
+      <div class="container flex flex-col gap-10 items-center md:flex-row">
         <div data-aos="fade-right" class="flex-1">
           <h2 class="mb-2 text-xl font-bold text-p-200">Ưu Đãi Có Hạn</h2>
           <h1 class="mb-6 text-4xl font-bold leading-tight md:text-5xl">
@@ -1445,47 +1419,47 @@
         <h1 class="main_heading">Câu Hỏi <span class="text-gradient">Thường Gặp</span></h1>
       </div>
 
-      <div class="max-w-3xl mx-auto space-y-4">
+      <div class="mx-auto space-y-4 max-w-3xl">
         <!-- Question 1 -->
-        <div data-aos="fade-up" data-aos-delay="100" class="overflow-hidden border bg-white border-p-200 rounded-lg">
-          <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none faq-btn">
+        <div data-aos="fade-up" data-aos-delay="100" class="overflow-hidden bg-white rounded-lg border border-p-200">
+          <button class="flex justify-between items-center p-4 w-full text-left focus:outline-none faq-btn">
             <span class="font-bold text-p-900">Trà của bạn có nguồn gốc từ đâu?</span>
             <span class="transition-transform duration-300 transform icon text-p-600"><i class="fas fa-chevron-down"></i></span>
           </button>
-          <div class="hidden p-4 text-n-600 faq-content border-t border-p-100 bg-p-50/50">
+          <div class="hidden p-4 border-t text-n-600 faq-content border-p-100 bg-p-50/50">
             Trà của chúng tôi được nhập khẩu trực tiếp từ các nông trường trà uy tín tại Nhật Bản, Đài Loan và Việt Nam, đảm bảo quy trình trồng và chế biến sạch, an toàn.
           </div>
         </div>
 
         <!-- Question 2 -->
-        <div data-aos="fade-up" data-aos-delay="200" class="overflow-hidden border bg-white border-p-200 rounded-lg">
-          <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none faq-btn">
+        <div data-aos="fade-up" data-aos-delay="200" class="overflow-hidden bg-white rounded-lg border border-p-200">
+          <button class="flex justify-between items-center p-4 w-full text-left focus:outline-none faq-btn">
             <span class="font-bold text-p-900">Tôi có thể đổi trả sản phẩm không?</span>
             <span class="transition-transform duration-300 transform icon text-p-600"><i class="fas fa-chevron-down"></i></span>
           </button>
-          <div class="hidden p-4 text-n-600 faq-content border-t border-p-100 bg-p-50/50">
+          <div class="hidden p-4 border-t text-n-600 faq-content border-p-100 bg-p-50/50">
             Chúng tôi cam kết hoàn tiền 100% nếu bạn không hài lòng về chất lượng sản phẩm trong vòng 30 ngày kể từ ngày mua. Vui lòng giữ lại bao bì và hóa đơn.
           </div>
         </div>
 
         <!-- Question 3 -->
-        <div data-aos="fade-up" data-aos-delay="300" class="overflow-hidden border bg-white border-p-200 rounded-lg">
-          <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none faq-btn">
+        <div data-aos="fade-up" data-aos-delay="300" class="overflow-hidden bg-white rounded-lg border border-p-200">
+          <button class="flex justify-between items-center p-4 w-full text-left focus:outline-none faq-btn">
             <span class="font-bold text-p-900">Thời gian giao hàng là bao lâu?</span>
             <span class="transition-transform duration-300 transform icon text-p-600"><i class="fas fa-chevron-down"></i></span>
           </button>
-          <div class="hidden p-4 text-n-600 faq-content border-t border-p-100 bg-p-50/50">
+          <div class="hidden p-4 border-t text-n-600 faq-content border-p-100 bg-p-50/50">
             Đối với nội thành TP.HCM, thời gian giao hàng là 1-2 ngày. Các tỉnh thành khác từ 3-5 ngày làm việc.
           </div>
         </div>
 
          <!-- Question 4 -->
-        <div data-aos="fade-up" data-aos-delay="400" class="overflow-hidden border bg-white border-p-200 rounded-lg">
-          <button class="flex items-center justify-between w-full p-4 text-left focus:outline-none faq-btn">
+        <div data-aos="fade-up" data-aos-delay="400" class="overflow-hidden bg-white rounded-lg border border-p-200">
+          <button class="flex justify-between items-center p-4 w-full text-left focus:outline-none faq-btn">
             <span class="font-bold text-p-900">Cách bảo quản trà tốt nhất là gì?</span>
             <span class="transition-transform duration-300 transform icon text-p-600"><i class="fas fa-chevron-down"></i></span>
           </button>
-          <div class="hidden p-4 text-n-600 faq-content border-t border-p-100 bg-p-50/50">
+          <div class="hidden p-4 border-t text-n-600 faq-content border-p-100 bg-p-50/50">
              Bạn nên bảo quản trà trong hộp kín, để nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp và mùi lạ. Tốt nhất là sử dụng hộp thiếc hoặc lọ thủy tinh tối màu.
           </div>
         </div>
@@ -1505,7 +1479,7 @@
 
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
         <!-- Blog 1 -->
-        <div data-aos="fade-up" data-aos-delay="100" class="overflow-hidden bg-white shadow-lg rounded-xl group">
+        <div data-aos="fade-up" data-aos-delay="100" class="overflow-hidden bg-white rounded-xl shadow-lg group">
           <div class="overflow-hidden h-48">
             <img src="https://images.unsplash.com/photo-1576092768241-dec231854f74?q=80&w=400&auto=format&fit=crop" alt="Blog 1" class="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110">
           </div>
@@ -1518,7 +1492,7 @@
         </div>
 
         <!-- Blog 2 -->
-        <div data-aos="fade-up" data-aos-delay="200" class="overflow-hidden bg-white shadow-lg rounded-xl group">
+        <div data-aos="fade-up" data-aos-delay="200" class="overflow-hidden bg-white rounded-xl shadow-lg group">
           <div class="overflow-hidden h-48">
             <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=400&auto=format&fit=crop" alt="Blog 2" class="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110">
           </div>
@@ -1531,7 +1505,7 @@
         </div>
 
         <!-- Blog 3 -->
-        <div data-aos="fade-up" data-aos-delay="300" class="overflow-hidden bg-white shadow-lg rounded-xl group">
+        <div data-aos="fade-up" data-aos-delay="300" class="overflow-hidden bg-white rounded-xl shadow-lg group">
            <div class="overflow-hidden h-48">
             <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" alt="Blog 3" class="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110">
           </div>
@@ -1551,7 +1525,7 @@
     ------------------>
     <section id="contact">
       <div class="container my-20">
-        <div class="flex flex-col w-full gap-10 lg:flex-row">
+        <div class="flex flex-col gap-10 w-full lg:flex-row">
           <!-- thông tin liên hệ -->
           <div
             class="flex h-[515px] flex-col items-center justify-center flex-1 w-full px-10 py-20 border border-dotted border-p-600 gap-9"
@@ -1617,12 +1591,12 @@
               <input
                 type="email"
                 placeholder="Nhập địa chỉ email của bạn"
-                class="w-full px-12 py-3 border border-p-600"
+                class="px-12 py-3 w-full border border-p-600"
               />
               <img
                 src="./assets/mail2.svg"
                 alt="mail icon"
-                class="absolute -translate-y-1/2 top-1/2 left-4"
+                class="absolute left-4 top-1/2 -translate-y-1/2"
               />
             </div>
 
@@ -1633,32 +1607,27 @@
               </div>
             </button>
 
-            <!-- hình decor -->
-            <img
-              src="./assets/contact.png"
-              alt="decor"
-              class="absolute -bottom-20 -right-20 w-[400px] opacity-15 -z-10"
-            />
+
           </div>
         </div>
       </div>
     </section>
 
   <section class="py-10 border-t bg-p-50 dark:bg-gray-800 border-p-200 dark:border-gray-700">
-    <div class="container flex flex-wrap justify-center gap-8 md:gap-16 opacity-70">
-       <div class="flex items-center gap-2">
+    <div class="container flex flex-wrap gap-8 justify-center opacity-70 md:gap-16">
+       <div class="flex gap-2 items-center">
          <i class="text-3xl text-p-600 fas fa-certificate"></i>
          <span class="font-semibold text-p-900 dark:text-white">Chứng Nhận FDA</span>
        </div>
-       <div class="flex items-center gap-2">
+       <div class="flex gap-2 items-center">
          <i class="text-3xl text-p-600 fas fa-shield-alt"></i>
          <span class="font-semibold text-p-900 dark:text-white">Bảo Mật 100%</span>
        </div>
-       <div class="flex items-center gap-2">
+       <div class="flex gap-2 items-center">
          <i class="text-3xl text-p-600 fas fa-undo"></i>
          <span class="font-semibold text-p-900 dark:text-white">Hoàn Tiền 30 Ngày</span>
        </div>
-       <div class="flex items-center gap-2">
+       <div class="flex gap-2 items-center">
          <i class="text-3xl text-p-600 fas fa-truck"></i>
          <span class="font-semibold text-p-900 dark:text-white">Giao Hàng Nhanh</span>
        </div>
@@ -1670,28 +1639,36 @@
     ------------------>
     <footer class="bg-p-950">
       <div class="container text-white/50">
-        <p class="text-center mt-9">© Tea Station's Copyright 2025</p>
+        <p class="mt-9 text-center">© Tea Station's Copyright 2025</p>
       </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed z-50 hidden p-3 text-white transition-opacity duration-300 rounded-full shadow-lg bottom-8 right-8 bg-p-600 hover:bg-p-700 focus:outline-none">
+    <button id="backToTop" class="hidden fixed right-8 bottom-8 z-50 p-3 text-white rounded-full shadow-lg transition-opacity duration-300 bg-p-600 hover:bg-p-700 focus:outline-none">
       <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Cookie Consent -->
-    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 z-50 p-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] bg-white transform translate-y-full transition-transform duration-300">
-      <div class="container flex flex-col items-center justify-between gap-4 md:flex-row">
-        <p class="text-sm text-n-600">Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn. Bằng cách tiếp tục, bạn đồng ý với chính sách bảo mật của chúng tôi.</p>
-        <div class="flex gap-4">
-          <button id="acceptCookie" class="px-6 py-2 text-white transition bg-p-600 rounded-lg hover:bg-p-700">Chấp nhận</button>
-          <button id="declineCookie" class="px-6 py-2 transition border rounded-lg border-n-300 hover:bg-n-100">Từ chối</button>
+    <div id="cookieConsent" class="fixed bottom-4 left-4 z-50 p-6 w-full max-w-sm bg-white rounded-lg border shadow-2xl transition-transform duration-500 border-p-100">
+      <div class="flex flex-col gap-4">
+        <h3 class="text-lg font-bold text-p-900">🍪 Cookie Notice</h3>
+        <p class="text-sm text-n-600">
+          Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn. Bằng cách
+          tiếp tục, bạn đồng ý với chính sách bảo mật của chúng tôi.
+        </p>
+        <div class="flex gap-3">
+          <button id="acceptCookie" class="flex-1 text-white rounded-lg transition btn btn-sm bg-p-600 hover:bg-p-700">
+            Chấp nhận
+          </button>
+          <button id="declineCookie" class="flex-1 rounded-lg border transition text-p-600 border-p-200 hover:bg-p-50">
+            Từ chối
+          </button>
         </div>
       </div>
     </div>
 
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed z-50 flex flex-col gap-2 top-24 right-4"></div>
+    <div id="toast-container" class="flex fixed right-4 top-24 z-50 flex-col gap-2"></div>
 
   </body>
 </html>

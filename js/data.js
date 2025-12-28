@@ -1,4 +1,4 @@
-export const productList = [
+const productList = [
   {
     name: "Midnight Spice",
     img: "../assets/products/blacktea1.jpg",
@@ -187,8 +187,8 @@ export const productList = [
   },
 ];
 
-export const partnerLogoBasePath = "../assets/partner-logos/";
-export const partnerLogos = [
+const partnerLogoBasePath = "../assets/partner-logos/";
+const partnerLogos = [
   { fileName: "costco.png", alt: "Costco Logo" },
   { fileName: "kroger.png", alt: "Kroger Logo" },
   { fileName: "meijer.png", alt: "Meijer Logo" },
