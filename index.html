@@ -100,6 +100,102 @@
       defer
       src="https://unpkg.com/counterup2@2.0.2/dist/index.js"
     ></script>
+    <style>
+      /* Emergency Style Restoration for Missing Output.CSS Classes */
+      
+      /* Progress Bar / Benefit Bars Styles */
+      .benefit-bars {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .progressbar-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      .progress-title {
+        font-weight: 700;
+        color: hsl(160, 65%, 17%); /* p-900 */
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+      [progress-bar] {
+        position: relative;
+        height: 0.75rem;
+        background-color: hsl(210, 20%, 93%); /* n-100 */
+        border-radius: 9999px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        background-color: hsl(150, 74%, 30%); /* p-600 */
+        border-radius: 9999px;
+        width: 0;
+        transition: width 1.5s ease-out;
+      }
+      .progress-number {
+        position: absolute;
+        right: 0;
+        top: -1.5rem;
+        font-size: 0.75rem;
+        color: hsl(217, 20%, 58%); /* n-500 */
+        font-weight: 600;
+      }
+      /* Ensure mark/arrow are hidden if not structurally needed or simple restore */
+      .progress-number-mark {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+      .progress-number-mark .percent::after {
+        content: attr(data-percentage);
+      }
+      
+      /* Best Product Layout Fixes */
+      .best-product--left {
+        max-width: 100%;
+      }
+      .best-product--left + div {
+        max-width: 100%;
+        width: 100%;
+      }
+      @media (min-width: 1024px) {
+        .best-product--left {
+          max-width: 50%;
+        }
+        .best-product--left + div {
+          max-width: 50%;
+        }
+      }
+      .best-product--left + div img {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        object-fit: cover;
+      }
+      
+      /* Partner Logos Flex Fix */
+      #partner-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        opacity: 0.6;
+      }
+      #partner-logos img {
+        max-height: 2.5rem;
+        width: auto;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s;
+      }
+      #partner-logos img:hover {
+        filter: grayscale(0%);
+      }
+    </style>
     <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/data.js"></script>
     <script defer src="./js/main.js?v=5"></script>
@@ -871,9 +967,8 @@
                 <h3>Mystic Earl Grey</h3>
                 <p>
                   Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và
-                  hươngAdd commentMore actions thơm sảng khoái, khiến đây trở
-                  thành lựa chọn lý tưởng cho cả nghi lễ buổi sáng và giờ nghỉ
-                  giải lao buổi chiều. Trải nghiệm sự ấm áp dễ chịu và những
+                  hương thơm sảng khoái, khiến đây trở thành lựa chọn lý tưởng
+                  cho cả nghi lễ buổi sáng và giờ nghỉ giải lao buổi chiều. Trải nghiệm sự ấm áp dễ chịu và những
                   phẩm chất tràn đầy năng lượng đã khiến trà đen trở thành thức
                   uống cổ điển được yêu thích trong nhiều thế kỷ.
                 </p>

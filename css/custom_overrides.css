@@ -1,0 +1,107 @@
+/* Custom Overrides to fix regressions */
+
+/* 1. Features / Why Us layout fix */
+.feature-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  color: white;
+  border-radius: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .feature-card {
+    flex: 1;
+    border-radius: 0;
+  }
+}
+
+.feature-filter {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.feature-card:hover .feature-filter {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.feature-card h3 {
+  position: relative;
+  z-index: 10;
+  font-family: "Lobster", cursive;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff !important;
+  text-align: center;
+}
+
+.feature-card p {
+  position: relative;
+  z-index: 10;
+  font-size: 0.9rem;
+  color: #f0f0f0 !important;
+  text-align: center;
+}
+
+/* 2. Product Tabs / Matcha Magic layout fix */
+.tabContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .tabContainer {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+}
+
+.productImg {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.tabContainer h3 {
+  font-family: "Lobster", cursive !important;
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.tabContainer h4 {
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.tabContainer p {
+  color: #334155;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* 3. Logos Wrapper Animation (Ensure it keeps working) */
+.logos-wrapper {
+  animation: logo-scroll 30s linear infinite;
+  width: max-content;
+}
