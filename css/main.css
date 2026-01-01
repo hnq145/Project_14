@@ -44,8 +44,13 @@
     @apply scroll-smooth;
   }
 
+  html,
   body {
-    @apply text-base font-inter overflow-x-clip;
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply text-base font-inter;
   }
 
   p {

@@ -28,7 +28,9 @@ $(function () {
       const img = document.createElement("img");
       img.src = partnerLogoBasePath + logo.fileName;
       img.alt = logo.alt;
-      img.classList.add("logo-ticker-image");
+      // Tailwind classes for premium logo styling
+      img.className =
+        "h-10 md:h-12 w-auto object-contain mx-6 md:mx-10 opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0 cursor-pointer filter";
       container.appendChild(img);
     });
   }

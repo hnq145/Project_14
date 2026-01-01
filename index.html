@@ -201,7 +201,7 @@
     <script defer src="./js/main.js?v=5"></script>
   </head>
 
-  <body class="transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+  <body class="overflow-x-hidden transition-colors duration-300 dark:bg-gray-900 dark:text-white">
     <!-- PRELOADER REMOVED -->
     <!-- <div id="preloader"></div> -->
 
@@ -232,7 +232,7 @@
           <!-- Right Side: Nav + Dark Mode + Hamburger -->
           <div class="flex gap-4 items-center lg:gap-8">
             <!-- Nav Links -->
-            <nav class="hidden gap-4 justify-end items-center w-full lg:flex lg:gap-8">
+            <nav class="!hidden gap-4 justify-end items-center w-full lg:!flex lg:gap-8">
               <a href="./products.html" class="navLink">Sản Phẩm</a>
               <a href="./#story" class="navLink">Giới Thiệu</a>
               <a href="./#contact" class="navLink">Liên Hệ</a>
@@ -264,7 +264,7 @@
       class="h-screen max-h-[1100px] bg-gradient-to-t from-p-100 to-white overflow-y-clip"
     >
       <div
-        class="container flex relative justify-center items-center w-full h-full xl:justify-start"
+        class="container flex relative justify-center items-center mx-auto w-full h-full"
       >
         <!-- hình -->
         <div
@@ -281,12 +281,12 @@
         <!-- nội dung chính -->
 
         <div
-          class="flex z-10 flex-col gap-4 justify-center items-center md:gap-9 xl:items-start"
+          class="flex z-10 flex-col gap-4 justify-center items-center md:gap-9"
         >
           <div>
             <h2
               data-aos="zoom-in"
-              class="mb-2 text-xs font-semibold tracking-wider leading-none text-center uppercase font-inter md:text-sm xl:text-start"
+              class="mb-2 text-xs font-semibold tracking-wider leading-none text-center uppercase font-inter md:text-sm"
             >
               hơn
               <span class="text-xs text-gradient md:text-sm">một trăm</span>
@@ -325,9 +325,9 @@
         Partner Logos 
     ------------------>
     <section id="partner-logos">
-      <div class="container">
+      <div class="container mx-auto">
         <!-- heading -->
-        <div data-aos="fade-right" class="mt-10">
+        <div data-aos="fade-right" class="mt-10 text-center">
           <h2 class="sub_heading">Có mặt tại</h2>
           <h1 class="main_heading">
             Những Nhà Phân Phối <span class="text-gradient">Uy Tín</span>
@@ -335,7 +335,7 @@
         </div>
         <!-- logos -->
         <div
-          class="flex mt-9 md:mt-16 [mask-image:linear-gradient(to_right,transparent,black,transparent)]"
+          class="flex mt-9 md:mt-16 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]"
         >
           <div
             id="partner-logo-list"
@@ -349,56 +349,55 @@
         Products
     ------------------>
     <section id="products">
-      <div class="container">
+      <div class="container mx-auto">
         <div class="flex flex-col gap-9">
           <!-- heading -->
-          <div data-aos="fade-right" class="mt-10">
+          <div data-aos="fade-right" class="mt-10 text-center">
             <h2 class="sub_heading">Tìm hiểu</h2>
             <h1 class="main_heading">
               sản phẩm <span class="text-gradient">trà ngon</span>
             </h1>
           </div>
           <!-- tabs -->
-          <div id="products-tabs">
+          <div id="products-tabs" class="w-full">
             <ul
-              class="flex bg-p-50 px-4 md:px-10 xl:px-[200px] py-4 md:py-6 gap-4 md:gap-8 justify-center mb-9 text-center"
+              class="flex flex-wrap gap-4 justify-center items-center px-6 py-3 mx-auto mb-12 rounded-full border shadow-sm md:gap-8 bg-p-50 w-fit border-p-100"
             >
               <li>
-                <a href="#matcha" class="tab-link"><span>Trà</span> Matcha</a>
+                <a href="#matcha" class="block px-4 py-2 text-lg font-bold transition-colors tab-link text-n-600 hover:text-p-600"><span>Trà</span> Matcha</a>
               </li>
 
-              <li>|</li>
+              <li class="text-p-200">|</li>
               <li>
-                <a href="#whiteTea" class="tab-link"><span>Trà</span> Trắng</a>
+                <a href="#whiteTea" class="block px-4 py-2 text-lg font-bold transition-colors tab-link text-n-600 hover:text-p-600"><span>Trà</span> Trắng</a>
               </li>
 
-              <li>|</li>
+              <li class="text-p-200">|</li>
               <li>
-                <a href="#oolongTea" class="tab-link"
+                <a href="#oolongTea" class="block px-4 py-2 text-lg font-bold transition-colors tab-link text-n-600 hover:text-p-600"
                   ><span>Trà</span> Ô Long</a
                 >
               </li>
 
-              <li>|</li>
+              <li class="text-p-200">|</li>
               <li>
-                <a href="#blackTea" class="tab-link"><span>Trà</span> Đen</a>
+                <a href="#blackTea" class="block px-4 py-2 text-lg font-bold transition-colors tab-link text-n-600 hover:text-p-600"><span>Trà</span> Đen</a>
               </li>
             </ul>
 
             <div id="matcha">
-              <div class="tabContainer">
-                <img
-                  src="./assets/product_1.jpg"
-                  alt="matcha"
-                  class="productImg"
-                />
+              <div class="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
+                <div class="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl group order-first">
+                  <img src="./assets/product_1.jpg" alt="matcha" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
+                  <div class="absolute inset-0 transition-colors bg-black/10 group-hover:bg-transparent"></div>
+                </div>
 
-                <div>
-                  <h3>Matcha Magic</h3>
-                  <h4>
+                <div class="space-y-6">
+                  <h3 class="text-4xl font-bold text-p-900 font-lobster">Matcha Magic</h3>
+                  <h4 class="text-xl font-medium text-p-600">
                     Khám phá những lợi ích tiềm năng của "vàng xanh" từ Nhật Bản
                   </h4>
-                  <p>
+                  <p class="text-lg leading-relaxed text-n-600">
                     Sẵn sàng nâng cao sức khỏe của bạn? Hãy làm quen với matcha,
                     loại bột màu xanh lá cây rực rỡ đang làm khuynh đảo thế giới
                     chăm sóc sức khỏe. Chứa đầy chất chống oxy hóa và chất dinh
@@ -412,29 +411,30 @@
                     nghiệm cách siêu thực phẩm cổ xưa này có thể tiếp thêm sinh
                     lực cho cơ thể và trí óc của bạn!
                   </p>
-                  <button>
-                    <a href="/products.html?filter-category=matcha" class="btn"
+                  <a href="/products.html?filter-category=matcha" class="inline-flex gap-2 items-center px-8 py-3 text-white rounded-full shadow-lg transition-colors transform bg-p-600 hover:bg-p-700 hover:shadow-xl hover:-translate-y-1"
                       >Xem Sản Phẩm Matcha
-                      <img src="./assets/right-arrow.svg" alt="right-arrow"
+                      <img src="./assets/right-arrow.svg" alt="right-arrow" class="w-5 h-5 filter brightness-0 invert"
                     /></a>
-                  </button>
                 </div>
               </div>
             </div>
             <div id="whiteTea">
-              <div class="tabContainer">
-                <img
-                  src="./assets/product_2.jpg"
-                  alt="whitetea"
-                  class="productImg"
-                />
+              <div class="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
+                <div class="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl group order-first lg:order-last">
+                  <img
+                    src="./assets/product_2.jpg"
+                    alt="whitetea"
+                   class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  />
+                   <div class="absolute inset-0 transition-colors bg-black/10 group-hover:bg-transparent"></div>
+                </div>
 
-                <div>
-                  <h3>Tinh chất tinh tế từ trà trắng</h3>
-                  <h4>
+                <div class="space-y-6">
+                  <h3 class="text-4xl font-bold text-p-900 font-lobster">Tinh chất tinh tế từ trà trắng</h3>
+                  <h4 class="text-xl font-medium text-p-600">
                     Hành trình khám phá hương vị tinh khiết nhất từ thiên nhiên
                   </h4>
-                  <p>
+                  <p class="text-lg leading-relaxed text-n-600">
                     Trà trắng, được tôn sùng vì sự nhẹ nhàng và tinh tế của nó,
                     được chế biến từ lá non và nụ của cây Camellia sinensis. Với
                     hương hoa nhẹ nhàng và vị ngọt tự nhiên, loại trà này mang
@@ -445,31 +445,32 @@
                     phá vẻ đẹp thanh bình của trà trắng và nâng tầm nghi thức
                     uống trà của bạn lên một tầm cao mới.
                   </p>
-                  <button>
                     <a
                       href="/products.html?filter-category=whitetea"
-                      class="btn"
+                      class="inline-flex gap-2 items-center px-8 py-3 text-white rounded-full shadow-lg transition-colors transform bg-p-600 hover:bg-p-700 hover:shadow-xl hover:-translate-y-1"
                       >Xem Sản Phẩm Trà Trắng
-                      <img src="./assets/right-arrow.svg" alt="right-arrow"
+                      <img src="./assets/right-arrow.svg" alt="right-arrow" class="w-5 h-5 filter brightness-0 invert"
                     /></a>
-                  </button>
                 </div>
               </div>
             </div>
             <div id="oolongTea">
-              <div class="tabContainer">
-                <img
-                  src="./assets/product_3.jpg"
-                  alt="oolong"
-                  class="productImg"
-                />
+              <div class="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
+                <div class="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl group order-first">
+                  <img
+                    src="./assets/product_3.jpg"
+                    alt="oolong"
+                    class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 transition-colors bg-black/10 group-hover:bg-transparent"></div>
+                </div>
 
-                <div>
-                  <h3>Cuộc cách mạng trà ô long</h3>
-                  <h4>
+                <div class="space-y-6">
+                  <h3 class="text-4xl font-bold text-p-900 font-lobster">Cuộc cách mạng trà ô long</h3>
+                  <h4 class="text-xl font-medium text-p-600">
                     Mở khóa bí mật của loại trà lành mạnh nhất từ ​​thiên nhiên
                   </h4>
-                  <p>
+                  <p class="text-lg leading-relaxed text-n-600">
                     Bạn có tò mò về bí quyết trường thọ và sống lâu không? Không
                     cần tìm đâu xa, hãy tìm đến trà xanh! Thức uống cổ xưa này,
                     được tôn sùng trong nhiều nền văn hóa trên thế giới, chứa
@@ -482,27 +483,29 @@
                     thức pha chế đơn giản này có thể biến đổi sức khỏe của bạn
                     từng ngụm một!
                   </p>
-                  <button>
-                    <a href="/products.html?filter-category=oolong" class="btn"
+                    <a href="/products.html?filter-category=oolong"
+                      class="inline-flex gap-2 items-center px-8 py-3 text-white rounded-full shadow-lg transition-colors transform bg-p-600 hover:bg-p-700 hover:shadow-xl hover:-translate-y-1"
                       >Xem Sản Phẩm Trà Ô Long
-                      <img src="./assets/right-arrow.svg" alt="right-arrow"
+                      <img src="./assets/right-arrow.svg" alt="right-arrow" class="w-5 h-5 filter brightness-0 invert"
                     /></a>
-                  </button>
                 </div>
               </div>
             </div>
             <div id="blackTea">
-              <div class="tabContainer">
-                <img
-                  src="./assets/product_4.png"
-                  alt="blacktea"
-                  class="productImg"
-                />
+             <div class="grid grid-cols-1 gap-12 items-center lg:grid-cols-2">
+                <div class="relative h-[450px] rounded-2xl overflow-hidden shadow-2xl group order-first lg:order-last">
+                  <img
+                    src="./assets/product_4.png"
+                    alt="blacktea"
+                    class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div class="absolute inset-0 transition-colors bg-black/10 group-hover:bg-transparent"></div>
+                </div>
 
-                <div>
-                  <h3>Đánh thức các giác quan của bạn cùng trà đen</h3>
-                  <h4>Hương vị đậm đà truyền thống vượt thời gian</h4>
-                  <p>
+                <div class="space-y-6">
+                  <h3 class="text-4xl font-bold text-p-900 font-lobster">Đánh thức các giác quan của bạn cùng trà đen</h3>
+                  <h4 class="text-xl font-medium text-p-600">Hương vị đậm đà truyền thống vượt thời gian</h4>
+                  <p class="text-lg leading-relaxed text-n-600">
                     Hãy thưởng thức hương vị đậm đà, mạnh mẽ của trà đen, được
                     chế tác hoàn hảo cho khẩu vị sành điệu. Mỗi ngụm trà mang
                     đến sự pha trộn hài hòa giữa hương vị sâu lắng và hương thơm
@@ -512,14 +515,12 @@
                     trở thành thức uống cổ điển được yêu thích trong nhiều thế
                     kỷ.
                   </p>
-                  <button>
                     <a
                       href="/products.html?filter-category=blacktea"
-                      class="btn"
+                      class="inline-flex gap-2 items-center px-8 py-3 text-white rounded-full shadow-lg transition-colors transform bg-p-600 hover:bg-p-700 hover:shadow-xl hover:-translate-y-1"
                       >Xem Sản Phẩm Trà Đen
-                      <img src="./assets/right-arrow.svg" alt="right-arrow"
+                      <img src="./assets/right-arrow.svg" alt="right-arrow" class="w-5 h-5 filter brightness-0 invert"
                     /></a>
-                  </button>
                 </div>
               </div>
             </div>
@@ -559,85 +560,68 @@
     <!----------------- 
         Features
     ------------------>
-    <section id="features">
-      <div class="container relative m-20 text-center">
-        <!-- hàng đầu -->
-        <div
-          class="flex flex-col gap-0 justify-center items-center w-full lg:gap-10 lg:flex-row"
-        >
-          <div
-            data-aos="zoom-in"
-            class="feature-card group bg-[url(/assets/benefit_1.jpg)]"
-          >
-            <div class="feature-filter"></div>
-
-            <h3>Nguồn cung cao cấp</h3>
-            <p>
-              Chúng tôi tự hào sản xuất trà ngay tại Hoa Kỳ, sử dụng nguyên liệu
-              chất lượng cao từ các trang trại địa phương.
-            </p>
+    <section id="features" class="py-20">
+      <div class="container px-4 mx-auto">
+        <!-- Main Grid Layout -->
+        <div class="grid grid-cols-1 gap-8 items-stretch lg:grid-cols-3">
+          
+          <!-- Card 1: Nguồn cung cao cấp -->
+          <div data-aos="zoom-in" class="relative group h-[400px] rounded-2xl overflow-hidden shadow-xl">
+             <div class="absolute inset-0 bg-[url('./assets/benefit_1.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+             <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/80 via-black/40"></div>
+             <div class="flex relative z-10 flex-col justify-end p-8 h-full">
+                <h3 class="mb-3 text-2xl font-bold tracking-wide text-white font-lobster">Nguồn Cung Cao Cấp</h3>
+                <p class="leading-relaxed text-gray-200">
+                  Chúng tôi tự hào sản xuất trà ngay tại Hoa Kỳ, sử dụng nguyên liệu chất lượng cao từ các trang trại địa phương.
+                </p>
+             </div>
           </div>
 
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="400"
-            class="order-first bg-p-50 feature-card lg:order-none lg:bg-transparent"
-          >
-            <div>
-              <h2 class="sub_heading">Why Us?</h2>
-              <h1 class="leading-loose text-center main_heading">
-                Sự <span class="text-gradient">độc đáo </span>từ<br />
-                Tea Station
-              </h1>
-            </div>
+          <!-- Middle Column: Heading -->
+          <div data-aos="zoom-in" data-aos-delay="200" class="flex flex-col justify-center items-center p-8 text-center rounded-2xl border shadow-sm bg-p-50 border-p-100">
+             <h2 class="mb-2 sub_heading text-p-600">Tại Sao Chọn Chúng Tôi?</h2>
+             <h1 class="mb-4 text-3xl leading-tight main_heading lg:text-4xl">
+                Sự <span class="text-gradient font-lobster">Độc Đáo</span><br>từ Tea Station
+             </h1>
+             <p class="mx-auto max-w-sm text-n-500">
+                Chúng tôi không chỉ bán trà, chúng tôi mang đến một phong cách sống tinh tế và lành mạnh.
+             </p>
           </div>
 
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="100"
-            class="feature-card group bg-[url(/assets/pic1.jpg)]"
-          >
-            <div class="feature-filter"></div>
-
-            <h3>Hương vị và pha chế độc đáo</h3>
-            <p>
-              Sản phẩm độc quyền của chúng tôi gồm các loại trà được với hương
-              vị độc đáo, được chế tác để làm hài lòng mọi khẩu vị.
-            </p>
-          </div>
-        </div>
-
-        <!-- hàng thứ 2 -->
-
-        <div
-          class="flex flex-col justify-center items-center w-full lg:-mt-20 lg:gap-10 lg:flex-row"
-        >
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="200"
-            class="feature-card group bg-[url(/assets/benefit_3.jpg)]"
-          >
-            <div class="feature-filter"></div>
-
-            <h3>Tập trung vào sức khỏe</h3>
-            <p>
-              Hãy thưởng thức các loại trà tốt cho sức khỏe của chúng tôi, được
-              pha chế cẩn thận để hỗ trợ trí óc, cơ thể và tâm hồn của bạn.
-            </p>
+          <!-- Card 2: Hương vị độc đáo -->
+          <div data-aos="zoom-in" data-aos-delay="400" class="relative group h-[400px] rounded-2xl overflow-hidden shadow-xl">
+             <div class="absolute inset-0 bg-[url('./assets/pic1.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+             <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/80 via-black/40"></div>
+             <div class="flex relative z-10 flex-col justify-end p-8 h-full">
+                <h3 class="mb-3 text-2xl font-bold tracking-wide text-white font-lobster">Pha Chế Độc Đáo</h3>
+                <p class="leading-relaxed text-gray-200">
+                  Sản phẩm độc quyền với hương vị được chế tác thủ công để làm hài lòng mọi khẩu vị sành điệu nhất.
+                </p>
+             </div>
           </div>
 
-          <div
-            data-aos="zoom-in"
-            data-aos-delay="300"
-            class="feature-card group bg-[url(/assets/benefit_4.jpg)]"
-          >
-            <div class="feature-filter"></div>
+          <!-- Card 3: Sức khỏe -->
+          <div data-aos="zoom-in" class="relative group h-[400px] rounded-2xl overflow-hidden shadow-xl lg:col-span-1">
+             <div class="absolute inset-0 bg-[url('./assets/benefit_3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+             <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/80 via-black/40"></div>
+             <div class="flex relative z-10 flex-col justify-end p-8 h-full">
+                <h3 class="mb-3 text-2xl font-bold tracking-wide text-white font-lobster">Tập Trung Sức Khỏe</h3>
+                <p class="leading-relaxed text-gray-200">
+                  Các loại trà thảo mộc được pha chế cẩn thận để hỗ trợ trí óc, thanh lọc cơ thể và nuôi dưỡng tâm hồn.
+                </p>
+             </div>
+          </div>
 
-            <h3>Trải Nghiệm Cá Nhân Hoá</h3>
-            <p>
-              Trải nghiệm dịch vụ được cá nhân hóa với mọi đơn hàng, phù hợp với
-              sở thích và nhu cầu trà riêng của bạn.
-            </p>
+          <!-- Card 4: Cá nhân hóa (Adjusted layout to fill space nicely) -->
+           <div data-aos="zoom-in" data-aos-delay="200" class="relative group h-[400px] rounded-2xl overflow-hidden shadow-xl lg:col-span-2">
+             <div class="absolute inset-0 bg-[url('./assets/benefit_4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+             <div class="absolute inset-0 bg-gradient-to-t to-transparent from-black/80 via-black/40"></div>
+             <div class="flex relative z-10 flex-col justify-end p-8 h-full">
+                <h3 class="mb-3 text-2xl font-bold tracking-wide text-white font-lobster">Trải Nghiệm Cá Nhân</h3>
+                <p class="max-w-2xl leading-relaxed text-gray-200">
+                  Dịch vụ được cá nhân hóa cho từng đơn hàng, phù hợp với gu thưởng thức và nhu cầu riêng biệt của bạn. Chúng tôi lắng nghe để mang đến tách trà hoàn hảo nhất.
+                </p>
+             </div>
           </div>
         </div>
       </div>
@@ -647,10 +631,10 @@
        Best Sellers
     ------------------>
     <section id="best-sellers">
-      <div class="container my-20">
+      <div class="container mx-auto my-20">
         <!-- tiêu đề -->
-        <div class="flex flex-col items-start md:items-center lg:items-start">
-          <div data-aos="fade-right">
+        <div class="flex flex-col items-center">
+          <div data-aos="fade-right" class="text-center">
             <h2 class="sub_heading">Khách hàng yêu thích</h2>
             <h2 class="main_heading">
               Những Sản Phẩm <span class="text-gradient">Bán Chạy Nhất</span>
@@ -660,7 +644,7 @@
           <p
             data-aos="fade-right"
             data-aos-delay="100"
-            class="pr-16 mt-2 max-w-lg text-xs text-start md:text-center lg:text-start text-n-500"
+            class="pr-16 mt-2 max-w-lg text-center text-n-500"
           >
             Khám phá những sản phẩm bán chạy nhất của chúng tôi, nơi chất lượng
             kết hợp hương vị trong mỗi tách trà. Hãy tham gia cùng hàng ngàn
@@ -671,386 +655,164 @@
 
         <!-- carousel sản phẩm  -->
         <div class="px-4 mt-9 lg:px-4 md:px-2 slider">
-          <!-- sản phẩm 1 -->
-          <div class="!flex flex-col lg:flex-row items-center justify-between">
-            <!-- phần bên trái -->
-            <div class="flex-1 best-product--left">
-              <div class="best-product-info">
-                <h3>Peppermint Velvet</h3>
-                <p>
-                  Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và
-                  hương thơm sảng khoái, khiến đây trở thành lựa chọn lý tưởng
-                  cho cả nghi lễ buổi sáng và giờ nghỉ giải lao buổi chiều. Trải
-                  nghiệm sự ấm áp dễ chịu và những phẩm chất tràn đầy năng lượng
-                  đã khiến trà đen trở thành thức uống cổ điển được yêu thích
-                  trong nhiều thế kỷ.
+          <!-- Product 1 -->
+          <div class="px-2 outline-none">
+            <div class="grid grid-cols-1 gap-10 items-center p-8 bg-white rounded-3xl border shadow-sm lg:grid-cols-2 border-n-100">
+              <!-- Left Info -->
+              <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-p-900 font-lobster">Peppermint Velvet</h3>
+                <p class="leading-relaxed text-n-600">
+                  Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và hương thơm sảng khoái.
+                  Trải nghiệm sự ấm áp dễ chịu và năng lượng tươi mới.
                 </p>
-              </div>
-
-              <!-- thanh tiến trình -->
-              <div class="benefit-bars" id="firstbar">
-                <!-- hàng trên -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Tăng cường năng lượng và tập trung
-                    </h4>
-                    <div progress-bar data-percentage="94%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                
+                <!-- Progress Bars (Replaced Custom CSS with Tailwind) -->
+                <div class="space-y-4">
+                    <!-- Bar 1 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Tăng cường năng lượng</span>
+                            <span class="text-sm font-bold text-n-500">94%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Giàu chất chống oxy hoá</h4>
-                    <div progress-bar data-percentage="93%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full duration-1000 ease-out bg-p-500" style="width: 94%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <!-- hàng dưới -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Tăng cường trao đổi chất</h4>
-                    <div progress-bar data-percentage="90%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                    <!-- Bar 2 -->
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Giàu chất chống oxy hoá</span>
+                            <span class="text-sm font-bold text-n-500">93%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Thúc đẩy sự bình tĩnh và thư giãn
-                    </h4>
-                    <div progress-bar data-percentage="95%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full duration-1000 ease-out bg-p-500" style="width: 93%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
+                     <!-- Bar 3 -->
+                     <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Thúc đẩy thư giãn</span>
+                            <span class="text-sm font-bold text-n-500">95%</span>
+                        </div>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full duration-1000 ease-out bg-p-500" style="width: 95%"></div>
+                        </div>
+                    </div>
                 </div>
               </div>
-            </div>
-
-            <!-- phần bên phải -->
-            <div>
-              <img
-                src="./assets/products/matcha1.jpg"
-                alt="best-sellers-product"
-              />
+              
+              <!-- Right Image -->
+              <div class="relative h-[400px] rounded-2xl overflow-hidden group">
+                  <img src="./assets/products/matcha1.jpg" alt="Peppermint Velvet" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+              </div>
             </div>
           </div>
 
-          <!-- sản phẩm 2 -->
-          <div class="!flex flex-col lg:flex-row items-center justify-between">
-            <!-- phần bên trái -->
-            <div class="flex-1 best-product--left">
-              <div class="best-product-info">
-                <h3>Chamomile Bliss</h3>
-                <p>
-                  Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và
-                  hương thơm sảng khoái, khiến đây trở thành lựa chọn lý tưởng
-                  cho cả nghi lễ buổi sáng và giờ nghỉ giải lao buổi chiều. Trải
-                  nghiệm sự ấm áp dễ chịu và những phẩm chất tràn đầy năng lượng
-                  đã khiến trà đen trở thành thức uống cổ điển được yêu thích
-                  trong nhiều thế kỷ.
+          <!-- Product 2 -->
+          <div class="px-2 outline-none">
+            <div class="grid grid-cols-1 gap-10 items-center p-8 bg-white rounded-3xl border shadow-sm lg:grid-cols-2 border-n-100">
+              <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-p-900 font-lobster">Chamomile Bliss</h3>
+                <p class="leading-relaxed text-n-600">
+                  Hương vị hoa cúc dịu nhẹ giúp bạn thư giãn sau một ngày dài. Sự lựa chọn hoàn hảo cho giấc ngủ ngon và tái tạo năng lượng.
                 </p>
-              </div>
-
-              <!-- thanh tiến trình -->
-              <div class="benefit-bars">
-                <!-- hàng trên -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Tăng cường năng lượng và tập trung
-                    </h4>
-                    <div progress-bar data-percentage="96%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Thư giãn tâm trí</span>
+                            <span class="text-sm font-bold text-n-500">98%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Giàu chất chống oxy hoá</h4>
-                    <div progress-bar data-percentage="97%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 98%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <!-- hàng dưới -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Tăng cường trao đổi chất</h4>
-                    <div progress-bar data-percentage="90%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Hương thơm tự nhiên</span>
+                            <span class="text-sm font-bold text-n-500">100%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Thúc đẩy sự bình tĩnh và thư giãn
-                    </h4>
-                    <div progress-bar data-percentage="89%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 100%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- phần bên phải -->
-            <div>
-              <img
-                src="./assets/products/blacktea1.jpg"
-                alt="best-sellers-product"
-              />
+              <div class="relative h-[400px] rounded-2xl overflow-hidden group">
+                  <img src="./assets/products/blacktea1.jpg" alt="Chamomile Bliss" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+              </div>
             </div>
           </div>
 
-          <!-- sản phẩm 3 -->
-          <div class="!flex flex-col lg:flex-row items-center justify-between">
-            <!-- phần bên trái -->
-            <div class="flex-1 best-product--left">
-              <div class="best-product-info">
-                <h3>Lemon Ginger Zest</h3>
-                <p>
-                  Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và
-                  hươngAdd commentMore actions thơm sảng khoái, khiến đây trở
-                  thành lựa chọn lý tưởng cho cả nghi lễ buổi sáng và giờ nghỉ
-                  giải lao buổi chiều. Trải nghiệm sự ấm áp dễ chịu và những
-                  phẩm chất tràn đầy năng lượng đã khiến trà đen trở thành thức
-                  uống cổ điển được yêu thích trong nhiều thế kỷ.
+          <!-- Product 3 -->
+          <div class="px-2 outline-none">
+            <div class="grid grid-cols-1 gap-10 items-center p-8 bg-white rounded-3xl border shadow-sm lg:grid-cols-2 border-n-100">
+              <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-p-900 font-lobster">Lemon Ginger Zest</h3>
+                <p class="leading-relaxed text-n-600">
+                   Sự kết hợp hoàn hảo giữa chanh tươi và gừng ấm, giúp tăng cường hệ miễn dịch và làm ấm cơ thể trong những ngày se lạnh.
                 </p>
-              </div>
-
-              <!-- thanh tiến trình -->
-              <div class="benefit-bars">
-                <!-- hàng trên -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Tăng cường năng lượng và tập trung
-                    </h4>
-                    <div progress-bar data-percentage="85%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Tăng cường miễn dịch</span>
+                            <span class="text-sm font-bold text-n-500">96%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Giàu chất chống oxy hoá</h4>
-                    <div progress-bar data-percentage="95%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 96%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <!-- hàng dưới -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Tăng cường trao đổi chất</h4>
-                    <div progress-bar data-percentage="88%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Hỗ trợ tiêu hóa</span>
+                            <span class="text-sm font-bold text-n-500">92%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Thúc đẩy sự bình tĩnh và thư giãn
-                    </h4>
-                    <div progress-bar data-percentage="99%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 92%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- phần bên phải -->
-            <div>
-              <img
-                src="./assets/products/whitetea1.jpg"
-                alt="best-sellers-product"
-              />
+              <div class="relative h-[400px] rounded-2xl overflow-hidden group">
+                  <img src="./assets/products/whitetea1.jpg" alt="Lemon Ginger Zest" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+              </div>
             </div>
           </div>
-
-          <!-- sản phẩm 4 -->
-          <div class="!flex flex-col lg:flex-row items-center justify-between">
-            <!-- phần bên trái -->
-            <div class="flex-1 best-product--left">
-              <div class="best-product-info">
-                <h3>Mystic Earl Grey</h3>
-                <p>
-                  Mỗi ngụm mang đến sự pha trộn hài hòa giữa hương vị đậm đà và
-                  hương thơm sảng khoái, khiến đây trở thành lựa chọn lý tưởng
-                  cho cả nghi lễ buổi sáng và giờ nghỉ giải lao buổi chiều. Trải nghiệm sự ấm áp dễ chịu và những
-                  phẩm chất tràn đầy năng lượng đã khiến trà đen trở thành thức
-                  uống cổ điển được yêu thích trong nhiều thế kỷ.
+          
+           <!-- Product 4 -->
+           <div class="px-2 outline-none">
+            <div class="grid grid-cols-1 gap-10 items-center p-8 bg-white rounded-3xl border shadow-sm lg:grid-cols-2 border-n-100">
+              <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-p-900 font-lobster">Mystic Earl Grey</h3>
+                <p class="leading-relaxed text-n-600">
+                   Hương vị cổ điển đầy mê hoặc của Earl Grey, được nâng tầm với những lá trà thượng hạng nhất. Đánh thức các giác quan của bạn.
                 </p>
-              </div>
-
-              <!-- thanh tiến trình -->
-              <div class="benefit-bars">
-                <!-- hàng trên -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Tăng cường năng lượng và tập trung
-                    </h4>
-                    <div progress-bar data-percentage="83%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Hương vị đậm đà</span>
+                            <span class="text-sm font-bold text-n-500">97%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Giàu chất chống oxy hoá</h4>
-                    <div progress-bar data-percentage="89%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 97%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
-                </div>
-                <!-- hàng dưới -->
-                <div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">Tăng cường trao đổi chất</h4>
-                    <div progress-bar data-percentage="97%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-bold text-p-900">Sự tỉnh táo</span>
+                            <span class="text-sm font-bold text-n-500">95%</span>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex-1 progressbar-item">
-                    <h4 class="progress-title">
-                      Thúc đẩy sự bình tĩnh và thư giãn
-                    </h4>
-                    <div progress-bar data-percentage="99%">
-                      <div class="progress-number">
-                        <div class="progress-number-mark">
-                          <span class="percent"></span>
-                          <span class="down-arrow"></span>
+                        <div class="w-full h-2.5 rounded-full bg-n-100">
+                            <div class="h-2.5 rounded-full bg-p-500" style="width: 95%"></div>
                         </div>
-                      </div>
-                      <div class="progress-bg">
-                        <div class="progress-fill"></div>
-                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
-            </div>
-
-            <!-- phần bên phải -->
-            <div>
-              <img
-                src="./assets/products/oolong1.jpg"
-                alt="best-sellers-product"
-              />
+              <div class="relative h-[400px] rounded-2xl overflow-hidden group">
+                  <img src="./assets/products/oolong1.jpg" alt="Mystic Earl Grey" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+              </div>
             </div>
           </div>
         </div>
@@ -1061,7 +823,7 @@
        Testimonials
     ------------------>
     <section id="testimonials" class="py-20 bg-p-50">
-      <div class="container">
+      <div class="container mx-auto">
         <div data-aos="fade-up" class="mb-10 text-center">
           <h2 class="sub_heading">Khách hàng nói gì</h2>
           <h1 class="main_heading">
@@ -1121,7 +883,7 @@
        Pricing
     ------------------>
     <section id="pricing" class="py-20">
-      <div class="container">
+      <div class="container mx-auto">
         <div data-aos="fade-up" class="mb-16 text-center">
           <h2 class="sub_heading">Gói Dịch Vụ</h2>
           <h1 class="main_heading">
@@ -1220,14 +982,14 @@
     ------------------>
     <section
       id="stats"
-      class="relative mt-20 bg-fixed bg-center bg-no-repeat bg-cover bg-[url(/assets/statsBg.jpg)]"
+      class="relative mt-20 overflow-hidden bg-fixed bg-center bg-no-repeat bg-cover bg-[url('./assets/pic0.jpg')]"
     >
       <!-- overlay -->
       <div class="absolute inset-0 bg-p-950/95"></div>
 
       <!-- nội dung -->
       <div
-        class="container flex relative z-10 flex-col gap-14 justify-center items-center px-4 py-20 lg:py-28 lg:gap-32 md:flex-row"
+        class="container flex relative z-10 flex-col gap-14 justify-center items-center px-4 py-20 mx-auto text-white lg:py-28 lg:gap-32 md:flex-row"
       >
         <div class="stats-item">
           <h1 class="counter">100+</h1>
@@ -1313,9 +1075,9 @@
     <!----------------- 
       Story
     ------------------>
-    <section id="story">
+    <section id="story" class="overflow-hidden">
       <!-- lớp chứa hình nền -->
-      <div class="container py-20">
+      <div class="container py-20 mx-auto">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:items-center">
           <!-- Hình ảnh với 2 viền -->
           <div data-aos="fade-right" class="relative order-2 md:order-1">
@@ -1346,7 +1108,7 @@
                 <h1 class="text-p-900 main_heading">Câu chuyện & sứ mệnh</h1>
               </div>
 
-              <p class="text-n-200 max-w-80">
+              <p class="max-w-xl font-medium text-justify text-n-600">
                 Tại Tea Station, chúng tôi tận tâm tạo ra những loại trà đặc
                 biệt tôn vinh hương vị và sức khỏe. Có nguồn gốc từ những thành
                 phần tốt nhất, các hỗn hợp của chúng tôi được chế tác bằng sự
@@ -1367,7 +1129,7 @@
        Instructors
     ------------------>
     <section id="instructors" class="py-20">
-      <div class="container">
+      <div class="container mx-auto">
         <div data-aos="fade-up" class="mb-16 text-center">
           <h2 class="sub_heading">Người truyền cảm hứng</h2>
           <h1 class="main_heading">
@@ -1439,8 +1201,8 @@
     <!----------------- 
        Promo/Deal
     ------------------>
-    <section id="promo" class="py-20 text-white bg-p-900">
-      <div class="container flex flex-col gap-10 items-center md:flex-row">
+    <section id="promo" class="overflow-hidden py-20 text-white bg-p-900">
+      <div class="container flex flex-col gap-10 items-center mx-auto md:flex-row">
         <div data-aos="fade-right" class="flex-1">
           <h2 class="mb-2 text-xl font-bold text-p-200">Ưu Đãi Có Hạn</h2>
           <h1 class="mb-6 text-4xl font-bold leading-tight md:text-5xl">
@@ -1494,7 +1256,7 @@
         </div>
         <div data-aos="fade-left" class="flex-1">
           <img
-            src="https://images.unsplash.com/photo-1563911302283-d2bc129e7c1f?q=80&w=1000&auto=format&fit=crop"
+            src="./assets/aboutUsImg.jpg"
             alt="Promo Tea"
             class="rounded-lg shadow-2xl"
           />
@@ -1508,7 +1270,7 @@
        FAQ
     ------------------>
   <section id="faq" class="py-20 bg-p-50">
-    <div class="container">
+    <div class="container mx-auto">
       <div data-aos="fade-up" class="mb-10 text-center">
         <h2 class="sub_heading">Giải đáp thắc mắc</h2>
         <h1 class="main_heading">Câu Hỏi <span class="text-gradient">Thường Gặp</span></h1>
@@ -1566,7 +1328,7 @@
        Blog Preview
     ------------------>
   <section id="blog" class="py-20">
-    <div class="container">
+    <div class="container mx-auto">
       <div data-aos="fade-up" class="mb-10 text-center">
         <h2 class="sub_heading">Tin tức & Sự kiện</h2>
         <h1 class="main_heading">Bài Viết <span class="text-gradient">Mới Nhất</span></h1>
@@ -1576,7 +1338,7 @@
         <!-- Blog 1 -->
         <div data-aos="fade-up" data-aos-delay="100" class="overflow-hidden bg-white rounded-xl shadow-lg group">
           <div class="overflow-hidden h-48">
-            <img src="https://images.unsplash.com/photo-1576092768241-dec231854f74?q=80&w=400&auto=format&fit=crop" alt="Blog 1" class="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110">
+            <img src="./assets/pic1.jpg" alt="Blog 1" class="object-cover w-full h-full transition-transform duration-500 transform group-hover:scale-110">
           </div>
           <div class="p-6">
             <span class="text-sm font-semibold text-p-600">Kiến thức trà</span>
@@ -1619,7 +1381,7 @@
     Contact
     ------------------>
     <section id="contact">
-      <div class="container my-20">
+      <div class="container mx-auto my-20">
         <div class="flex flex-col gap-10 w-full lg:flex-row">
           <!-- thông tin liên hệ -->
           <div
@@ -1671,7 +1433,7 @@
 
           <!-- form đăng ký theo dõi -->
           <div
-            class="relative text-center flex flex-col items-center w-full flex-1 h-[515px] px-10 py-20 gap-9 border border-p-600 overflow-clip"
+            class="relative text-center flex flex-col items-center w-full flex-1 min-h-[515px] px-6 lg:px-10 py-20 gap-9 border border-p-600 overflow-hidden"
           >
             <!-- heading -->
             <div data-aos="fade-down">
@@ -1709,7 +1471,7 @@
     </section>
 
   <section class="py-10 border-t bg-p-50 dark:bg-gray-800 border-p-200 dark:border-gray-700">
-    <div class="container flex flex-wrap gap-8 justify-center opacity-70 md:gap-16">
+    <div class="container flex flex-wrap gap-8 justify-center mx-auto opacity-70 md:gap-16">
        <div class="flex gap-2 items-center">
          <i class="text-3xl text-p-600 fas fa-certificate"></i>
          <span class="font-semibold text-p-900 dark:text-white">Chứng Nhận FDA</span>
@@ -1733,7 +1495,7 @@
     Footer
     ------------------>
     <footer class="bg-p-950">
-      <div class="container text-white/50">
+      <div class="container mx-auto text-white/50">
         <p class="mt-9 text-center">© Tea Station's Copyright 2025</p>
       </div>
     </footer>
