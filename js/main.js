@@ -5,8 +5,14 @@
     Nav
   =================== */
 $(function () {
-  // hide show nav
-  $(".navbar").hidescroll();
+  // Sticky Navbar Logic
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop() > 0) {
+      $(".navbar").addClass("sticky-nav-active");
+    } else {
+      $(".navbar").removeClass("sticky-nav-active");
+    }
+  });
 
   // mobile dropdown menu
   const toggleBtn = $("#toggle_btn");
@@ -121,26 +127,36 @@ $(function () {
 $(function () {
   productList.map((product) => {
     $("#product-items--container").append(`
-      <div data-filterable data-filter-category=${product.category}
- class="overflow-hidden relative col-span-3 group hover:shadow-md">
-                <div class="portfolio-item">
-                  <div>
+      <div data-filterable data-filter-category="${product.category}"
+ class="overflow-hidden relative col-span-3 group hover:shadow-md rounded-xl">
+                <div class="portfolio-item h-full">
+                  <div class="relative h-full">
                     <img
-                      src=${product.img}
+                      src="${product.img}"
                       alt="product-img"
+                      class="object-cover w-full h-full"
                     />
 
-                    <div class="product-item-overlay">
-                      <div class="product-details">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                      </div>
+                    <div class="flex absolute inset-0 flex-col gap-4 justify-center items-center p-4 text-center text-white bg-black/60 opacity-0 transition-opacity duration-300 product-item-overlay group-hover:opacity-100">
+                        <h3 class="text-xl font-bold">${product.name}</h3>
+                        <p class="text-sm">${product.description}</p>
+                        <button onclick="addToCart('${product.name}', '${product.img}')" class="px-6 py-2 font-bold text-p-900 bg-white rounded-full hover:bg-p-100 transition-colors">
+                            Thêm vào giỏ
+                        </button>
                     </div>
                   </div>
                 </div>
               </div>
       `);
   });
+
+  // Add to Cart Logic
+  window.addToCart = function (name, img) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, img, price: 99000 }); // Default price for now
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showToast(`Đã thêm ${name} vào giỏ hàng!`, "success");
+  };
 
   $.fn.filterjitsu();
 
@@ -375,4 +391,65 @@ $(function () {
     const scrollPercent = (scrollTop / docHeight) * 100;
     $("#scrollProgress").width(scrollPercent + "%");
   });
+});
+
+/* ================ 
+   Cart Page Logic
+  =================== */
+$(function () {
+  const cartContainer = $("#cart-items-container");
+  const cartTotalEl = $("#cart-total");
+  const cartFooter = $("#cart-footer");
+  const emptyMsg = $("#empty-cart-msg");
+
+  if (cartContainer.length) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length > 0) {
+      emptyMsg.hide();
+      cartFooter.removeClass("hidden");
+
+      let total = 0;
+      cartContainer.html(""); // Clear placeholder
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartContainer.append(`
+            <div class="flex items-center justify-between border-b border-n-100 pb-4">
+                <div class="flex items-center gap-4">
+                    <img src="${item.img}" alt="${
+          item.name
+        }" class="w-16 h-16 object-cover rounded-md">
+                    <div>
+                        <h3 class="font-bold text-p-900">${item.name}</h3>
+                        <p class="text-sm text-n-500">${item.price.toLocaleString()}đ</p>
+                    </div>
+                </div>
+                <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        `);
+      });
+
+      cartTotalEl.text(total.toLocaleString() + "đ");
+    } else {
+      cartFooter.addClass("hidden");
+      emptyMsg.show();
+    }
+  }
+
+  window.removeFromCart = function (index) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload(); // Simple reload to update view
+  };
+
+  window.clearCart = function () {
+    if (confirm("Bạn có chắc muốn xóa toàn bộ giỏ hàng?")) {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+  };
 });

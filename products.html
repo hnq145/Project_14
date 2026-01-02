@@ -2,32 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tea Station</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="./assets/logo.png"
-    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
 
     <!--------------- 
 
     CSS
     
     ----------------->
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="./css/showHideNav.css"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="./css/responsive-tabs.css"
-    />
+    <link type="text/css" rel="stylesheet" href="./css/showHideNav.css" />
+    <link type="text/css" rel="stylesheet" href="./css/responsive-tabs.css" />
     <!-- Add the slick-theme.css if you want default styling -->
     <link
       rel="stylesheet"
@@ -45,123 +30,178 @@
       type="text/css"
       href="./css/animated-counter-prograssbar.css"
     />
-    <link
-      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
-      rel="stylesheet"
-    />
-    <link
-      href="./dist/output.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              lobster: ["Lobster", "cursive"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              p: {
+                50: "hsl(150, 66%, 96%)", // #EEFBF5
+                100: "hsl(150, 64%, 91%)", // #D5F6E5
+                200: "hsl(150, 60%, 80%)", // #AEECCF
+                300: "hsl(150, 55%, 67%)", // #79DCB4
+                400: "hsl(150, 50%, 54%)", // #44C999
+                500: "hsl(150, 45%, 42%)", // #27A876
+                600: "hsl(150, 40%, 35%)", // #1E875F
+                700: "hsl(150, 35%, 28%)", // #166648
+                800: "hsl(150, 30%, 22%)", // #104B35
+                900: "hsl(150, 25%, 16%)", // #0A3224
+                950: "hsl(150, 25%, 16%)", // same as 900 for dark mode base
+              },
+              n: {
+                50: "hsl(0, 0%, 98%)", // #FAFAFA
+                100: "hsl(0, 0%, 96%)", // #F5F5F5
+                200: "hsl(0, 0%, 90%)", // #E5E5E5
+                300: "hsl(0, 0%, 80%)", // #CCCCCC
+                400: "hsl(0, 0%, 60%)", // #999999
+                500: "hsl(0, 0%, 45%)", // #737373
+                600: "hsl(0, 0%, 35%)", // #595959
+                700: "hsl(0, 0%, 25%)", // #404040
+                800: "hsl(0, 0%, 15%)", // #262626
+                900: "hsl(0, 0%, 10%)", // #171717
+                950: "hsl(0, 0%, 5%)", // #0D0D0D
+              },
+            },
+            keyframes: {
+              fadeRight: {
+                "0%": { opacity: "0", transform: "translate(20px)" },
+                "100%": { opacity: "1", transform: "translate(0)" },
+              },
+            },
+            animation: {
+              fadeRight: "fadeRight 1s ease-in-out",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .activeFilter {
+        background-color: hsl(150, 40%, 35%); /* p-600 */
+        color: white;
+        border-color: hsl(150, 40%, 35%);
+      }
+      .activeFilter:hover {
+        background-color: hsl(150, 35%, 28%); /* p-700 */
+        opacity: 1;
+      }
+      .sticky-header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+      }
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+    </style>
 
     <!-- FONT -->
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- JQuery -->
 
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      defer
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 
     <!--------------- 
 
     Scripts
     
     ----------------->
-    <script
-      src="./js/jquery.hidescroll.js"
-      defer
-    ></script>
-    <script
-      src="./js/jquery.responsiveTabs.js"
-      defer
-    ></script>
+    <script src="./js/jquery.hidescroll.js" defer></script>
+    <script src="./js/jquery.responsiveTabs.js" defer></script>
     <script
       defer
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
-    <script
-      src="./js/animated-counter-prograssbar.js"
-      defer
-    ></script>
+    <script src="./js/animated-counter-prograssbar.js" defer></script>
+    <script src="./js/data.js" defer></script>
     <script
       defer
       src="https://unpkg.com/counterup2@2.0.2/dist/index.js"
     ></script>
-    <script
-      defer
-      src="./js/jquery.filterjitsu.min.js"
-    ></script>
-    <script
-      defer
-      src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-    ></script>
-    <script
-      defer
-      type="module"
-      src="./js/main.js"
-    ></script>
+    <script defer src="./js/jquery.filterjitsu.min.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="./js/main.js"></script>
   </head>
   <body>
     <!----------------- 
         Navigation
     ------------------>
-    <header class="relative z-50">
+    <!-- Promo Bar -->
+    <div
+      id="promoBar"
+      class="relative z-[100] block py-2 pl-4 pr-10 text-sm text-center text-p-800 bg-p-50 border-b border-p-200"
+    >
+      <p>
+        🎉 Chào mừng bạn đến với Tea Station! Nhập mã
+        <b class="text-p-600">TEA50</b> để được giảm 50% cho đơn hàng đầu tiên.
+        <a href="index.html#promo" class="underline hover:text-p-600"
+          >Mua ngay</a
+        >
+      </p>
+      <button
+        onclick="document.getElementById('promoBar').style.display='none'"
+        class="absolute right-4 top-1/2 -translate-y-1/2 outline-none hover:text-p-600"
+      >
+        <i class="text-lg fas fa-times"></i>
+      </button>
+    </div>
+
+    <!----------------- 
+        Navigation
+    ------------------>
+    <header class="relative z-50 sticky-header">
       <div class="flex items-center justify-center navbar">
         <div
           class="max-w-[1536px] w-full px-4 py-4 md:py-10 md:px-[72px] flex items-center justify-between"
         >
           <!-- Logo -->
           <a
-            href="./"
+            href="index.html"
             class="flex items-center justify-center flex-none"
           >
-            <img
-              src="./assets/logo.png"
-              alt="logo"
-              class="w-16 h-16"
-            />
-            <p class="text-lg capitalize font-lobster text-p-900">Tea Station</p>
+            <img src="./assets/logo.png" alt="logo" class="w-16 h-16" />
+            <p class="text-lg capitalize font-lobster text-p-900">
+              Tea Station
+            </p>
           </a>
 
           <!-- Nav Links -->
-          <nav class="items-center justify-end hidden w-full gap-4 lg:flex lg:gap-8">
-            <a
-              href="./products.html"
-              class="navLink"
-              >Sản Phẩm</a
-            >
-            <a
-              href="./#story"
-              class="navLink"
-              >Giới Thiệu</a
-            >
-            <a
-              href="./#contact"
-              class="navLink"
-              >Liên Hệ</a
-            >
+          <nav
+            class="items-center justify-end hidden w-full gap-4 lg:flex lg:gap-8"
+          >
+            <a href="products.html" class="navLink">Sản Phẩm</a>
+            <a href="index.html#story" class="navLink">Giới Thiệu</a>
+            <a href="index.html#contact" class="navLink">Liên Hệ</a>
+            <a href="cart.html" class="navLink"
+              ><i class="fas fa-shopping-cart"></i
+            ></a>
           </nav>
 
           <!-- Hamburger Icon -->
-          <div
-            class="block cursor-pointer lg:hidden"
-            id="toggle_btn"
-          >
+          <div class="block cursor-pointer lg:hidden" id="toggle_btn">
             <img
               src="./assets/Menu Icon.svg"
               alt="hamburger icon"
@@ -171,21 +211,14 @@
 
           <!-- Mobile Menu -->
           <div class="dropdown-menu lg:hidden">
-            <a
-              href="./products.html"
-              class="navLink mobileNavLink"
-              >Sản Phẩm</a
-            >
-            <a
-              href="/#story"
-              class="navLink mobileNavLink"
+            <a href="products.html" class="navLink mobileNavLink">Sản Phẩm</a>
+            <a href="index.html#story" class="navLink mobileNavLink"
               >Giới Thiệu</a
             >
-            <a
-              href="/#contact"
-              class="navLink mobileNavLink"
+            <a href="index.html#contact" class="navLink mobileNavLink"
               >Liên Hệ</a
             >
+            <a href="cart.html" class="navLink mobileNavLink">Giỏ Hàng</a>
           </div>
         </div>
       </div>
@@ -195,7 +228,7 @@
        Tất cả sản phẩm
     ------------------>
     <section id="products">
-      <main class="container mt-20">
+      <main class="container mx-auto mt-20">
         <!-- banner -->
         <img
           data-aos="flip-up"
@@ -205,53 +238,58 @@
         />
 
         <!-- tiêu đề -->
-        <div class="mt-4 md:mt-9">
-          <div data-aos="fade-right">
+        <div class="mt-4 md:mt-9 flex flex-col items-center text-center">
+          <div data-aos="fade-up">
             <h2 class="sub_heading">Shop with us</h2>
             <h1 class="main_heading">Tất cả sản phẩm</h1>
           </div>
 
           <p
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-delay="100"
             class="max-w-lg mt-2 text-xs text-n-500"
           >
-            Cho dù bạn là người đam mê trà lâu năm hay mới bước chân vào thế giới
-            trà, chúng tôi ở đây để giúp bạn khám phá loại trà pha trộn yêu thích
-            tiếp theo của mình. Khám phá bộ sưu tập của chúng tôi và trải nghiệm nghệ
-            thuật pha trà trong từng ngụm.
+            Cho dù bạn là người đam mê trà lâu năm hay mới bước chân vào thế
+            giới trà, chúng tôi ở đây để giúp bạn khám phá loại trà pha trộn yêu
+            thích tiếp theo của mình. Khám phá bộ sưu tập của chúng tôi và trải
+            nghiệm nghệ thuật pha trà trong từng ngụm.
           </p>
         </div>
 
         <!-- filter tabs -->
         <div
           id="allProduct-filters"
-          class="flex gap-8 mt-4 md:mt-9"
+          class="flex flex-wrap justify-center gap-4 mt-8 md:mt-12"
         >
           <a
             id="f-all"
             href="?"
+            class="px-6 py-2 text-sm font-bold transition-all duration-300 border rounded-full cursor-pointer md:text-base border-n-200 text-n-500 hover:text-p-600 hover:border-p-600 hover:bg-p-50"
             >Tất cả <span class="hidden md:inline">sản phẩm</span></a
           >
 
           <a
             id="f-blacktea"
             href="?filter-category=blacktea"
+            class="px-6 py-2 text-sm font-bold transition-all duration-300 border rounded-full cursor-pointer md:text-base border-n-200 text-n-500 hover:text-p-600 hover:border-p-600 hover:bg-p-50"
             ><span class="hidden md:inline">Trà</span> đen</a
           >
           <a
             id="f-whitetea"
             href="?filter-category=whitetea"
+            class="px-6 py-2 text-sm font-bold transition-all duration-300 border rounded-full cursor-pointer md:text-base border-n-200 text-n-500 hover:text-p-600 hover:border-p-600 hover:bg-p-50"
             ><span class="hidden md:inline">Trà</span> trắng</a
           >
           <a
             id="f-oolong"
             href="?filter-category=oolong"
+            class="px-6 py-2 text-sm font-bold transition-all duration-300 border rounded-full cursor-pointer md:text-base border-n-200 text-n-500 hover:text-p-600 hover:border-p-600 hover:bg-p-50"
             ><span class="hidden md:inline">Trà</span> ô long</a
           >
           <a
             id="f-matcha"
             href="?filter-category=matcha"
+            class="px-6 py-2 text-sm font-bold transition-all duration-300 border rounded-full cursor-pointer md:text-base border-n-200 text-n-500 hover:text-p-600 hover:border-p-600 hover:bg-p-50"
             ><span class="hidden md:inline">Trà</span> matcha</a
           >
         </div>
@@ -267,5 +305,31 @@
         </section>
       </main>
     </section>
+
+    <!-- Footer -->
+    <footer class="bg-p-950">
+      <div class="container mx-auto text-white/50 py-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <div class="text-center md:text-left">
+            <p class="font-bold text-white mb-2">Tea Station</p>
+            <p class="text-sm">Trà ngon cho mọi nhà.</p>
+          </div>
+          <div class="flex gap-6 text-sm">
+            <a href="index.html" class="hover:text-white transition"
+              >Trang Chủ</a
+            >
+            <a href="products.html" class="hover:text-white transition"
+              >Sản Phẩm</a
+            >
+            <a href="cart.html" class="hover:text-white transition">Giỏ Hàng</a>
+          </div>
+          <div class="text-sm text-center md:text-right">
+            <p>&copy; 2025 Tea Station. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

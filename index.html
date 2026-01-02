@@ -69,6 +69,21 @@
         },
       };
     </script>
+    <style>
+      .sticky-header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+      }
+      .sticky-nav-active {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <!-- FONT -->
@@ -218,11 +233,11 @@
     <!----------------- 
         Navigation
     ------------------>
-    <header class="relative z-50">
+    <header class="relative z-50 sticky-header">
       <div class="flex justify-center items-center navbar">
         <div class="max-w-[1536px] w-full px-4 py-4 md:py-10 md:px-[72px] flex items-center justify-between">
           <!-- Logo -->
-          <a href="./" class="flex flex-none justify-center items-center">
+          <a href="index.html" class="flex flex-none justify-center items-center">
             <img src="./assets/logo.png" alt="logo" class="w-16 h-16" />
             <p class="text-lg capitalize font-lobster text-p-900">
               Tea Station
@@ -233,9 +248,10 @@
           <div class="flex gap-4 items-center lg:gap-8">
             <!-- Nav Links -->
             <nav class="!hidden gap-4 justify-end items-center w-full lg:!flex lg:gap-8">
-              <a href="./products.html" class="navLink">Sản Phẩm</a>
-              <a href="./#story" class="navLink">Giới Thiệu</a>
-              <a href="./#contact" class="navLink">Liên Hệ</a>
+              <a href="products.html" class="navLink">Sản Phẩm</a>
+              <a href="index.html#story" class="navLink">Giới Thiệu</a>
+              <a href="index.html#contact" class="navLink">Liên Hệ</a>
+              <a href="cart.html" class="navLink"><i class="fas fa-shopping-cart"></i></a>
             </nav>
 
 
@@ -248,9 +264,10 @@
 
           <!-- Mobile Menu -->
           <div class="dropdown-menu lg:hidden">
-            <a href="./products.html" class="navLink mobileNavLink">Sản Phẩm</a>
-            <a href="#story" class="navLink mobileNavLink">Giới Thiệu</a>
-            <a href="#contact" class="navLink mobileNavLink">Liên Hệ</a>
+            <a href="products.html" class="navLink mobileNavLink">Sản Phẩm</a>
+            <a href="index.html#story" class="navLink mobileNavLink">Giới Thiệu</a>
+            <a href="index.html#contact" class="navLink mobileNavLink">Liên Hệ</a>
+            <a href="cart.html" class="navLink mobileNavLink">Giỏ Hàng</a>
           </div>
         </div>
       </div>
@@ -261,22 +278,24 @@
     ------------------>
     <section
       id="hero"
-      class="h-screen max-h-[1100px] bg-gradient-to-t from-p-100 to-white overflow-y-clip"
+      class="h-screen max-h-[1100px] relative bg-gradient-to-t from-p-100 to-white overflow-y-clip"
     >
+      <!-- hình -->
+      <div
+        data-aos="fade-left"
+        class="overflow-hidden absolute right-0 bottom-0 z-0 md:-bottom-40 xl:top-1/2 xl:-translate-y-1/2"
+      >
+        <img
+          src="./assets/hero_img.png"
+          alt="hero-img"
+          class="h-full 2xl:[mask-image:linear-gradient(to_left,transparent,black_10%)]"
+        />
+      </div>
+
       <div
         class="container flex relative justify-center items-center mx-auto w-full h-full"
       >
-        <!-- hình -->
-        <div
-          data-aos="fade-left"
-          class="overflow-hidden absolute right-0 bottom-0 z-0 md:-bottom-40 xl:top-1/2 xl:-translate-y-1/2"
-        >
-          <img
-            src="./assets/hero_img.png"
-            alt="hero-img"
-            class="h-full 2xl:[mask-image:linear-gradient(to_left,transparent,black_10%)]"
-          />
-        </div>
+
 
         <!-- nội dung chính -->
 
@@ -1495,8 +1514,21 @@
     Footer
     ------------------>
     <footer class="bg-p-950">
-      <div class="container mx-auto text-white/50">
-        <p class="mt-9 text-center">© Tea Station's Copyright 2025</p>
+      <div class="container mx-auto text-white/50 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left">
+                <p class="font-bold text-white mb-2">Tea Station</p>
+                <p class="text-sm">Trà ngon cho mọi nhà.</p>
+            </div>
+            <div class="flex gap-6 text-sm">
+                <a href="index.html" class="hover:text-white transition">Trang Chủ</a>
+                <a href="products.html" class="hover:text-white transition">Sản Phẩm</a>
+                <a href="cart.html" class="hover:text-white transition">Giỏ Hàng</a>
+            </div>
+            <div class="text-sm text-center md:text-right">
+                <p>&copy; 2025 Tea Station. All rights reserved.</p>
+            </div>
+        </div>
       </div>
     </footer>
 
@@ -1505,24 +1537,7 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Cookie Consent -->
-    <div id="cookieConsent" class="fixed bottom-4 left-4 z-50 p-6 w-full max-w-sm bg-white rounded-lg border shadow-2xl transition-transform duration-500 border-p-100">
-      <div class="flex flex-col gap-4">
-        <h3 class="text-lg font-bold text-p-900">🍪 Cookie Notice</h3>
-        <p class="text-sm text-n-600">
-          Chúng tôi sử dụng cookie để cải thiện trải nghiệm của bạn. Bằng cách
-          tiếp tục, bạn đồng ý với chính sách bảo mật của chúng tôi.
-        </p>
-        <div class="flex gap-3">
-          <button id="acceptCookie" class="flex-1 text-white rounded-lg transition btn btn-sm bg-p-600 hover:bg-p-700">
-            Chấp nhận
-          </button>
-          <button id="declineCookie" class="flex-1 rounded-lg border transition text-p-600 border-p-200 hover:bg-p-50">
-            Từ chối
-          </button>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Toast Notification Container -->
     <div id="toast-container" class="flex fixed right-4 top-24 z-50 flex-col gap-2"></div>
